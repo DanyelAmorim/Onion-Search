@@ -14,15 +14,7 @@ Inspired by and adapted from the [Deep-Index](https://github.com/BryanApolonio/D
 
 This guide assumes you have a fresh Debian or Ubuntu server. We will install Nginx as the web server and PHP-FPM to process PHP files.
 
-### 1. Update System Packages
-
-First, update your system's package list:
-
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-### 2. Install Nginx
+### 1. Install Nginx
 
 Install Nginx, a high-performance web server:
 
@@ -37,7 +29,7 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
 
-### 3. Install PHP and PHP-FPM
+### 2. Install PHP and PHP-FPM
 
 Install PHP (version 8.1 or higher is recommended) and the PHP-FPM (FastCGI Process Manager) package, along with the SQLite extension:
 
@@ -54,7 +46,7 @@ sudo systemctl enable php8.1-fpm
 
 (Adjust `php8.1-fpm` to your installed PHP version if different, e.g., `php8.2-fpm`).
 
-### 4. Clone the Repository
+### 3. Clone the Repository
 
 Clone the Onion Search repository to your web server's root directory. For Nginx, this is typically `/var/www/html/`.
 
@@ -64,7 +56,7 @@ sudo git clone https://github.com/YOUR_GITHUB_USERNAME/Onion-Search.git /var/www
 
 **Note:** Replace `https://github.com/YOUR_GITHUB_USERNAME/Onion-Search.git` with the actual URL of your repository.
 
-### 5. Configure Nginx
+### 4. Configure Nginx
 
 Create a new Nginx server block configuration file for Onion Search. For example, `/etc/nginx/sites-available/onion-search`:
 
@@ -120,7 +112,7 @@ If the test is successful, restart Nginx to apply the changes:
 sudo systemctl restart nginx
 ```
 
-### 6. Set Directory Permissions
+### 5. Set Directory Permissions
 
 Ensure the web server has appropriate permissions to read files and write to the `data` directory for the SQLite database:
 
